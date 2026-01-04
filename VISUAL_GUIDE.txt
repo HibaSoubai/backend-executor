@@ -1,0 +1,244 @@
+# 🎯 GUIDE VISUEL - En 1 page
+
+```
+╔══════════════════════════════════════════════════════════════════════════╗
+║                                                                          ║
+║   🚀 Backend Executor - URLs d'API Réelles pour BackendForge           ║
+║                                                                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  📍 TON OBJECTIF                                                        │
+├─────────────────────────────────────────────────────────────────────────┤
+│  Au lieu de donner du code à déployer → Donner une URL prête !         │
+│                                                                         │
+│  AVANT ❌  : "Déployez ce code sur Vercel"                             │
+│  APRÈS ✅  : "Votre API : https://backend.com/api/execute/abc123"      │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  🏗️ ARCHITECTURE EN 3 PARTIES                                          │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  1️⃣  TON SITE                 2️⃣  BACKEND              3️⃣  RÉSULTAT    │
+│      (Frontend)                  (Vercel)                  (URL API)    │
+│                                                                         │
+│   ┌─────────────┐            ┌──────────────┐         ┌──────────────┐ │
+│   │ Utilisateur │            │   Node.js    │         │  URL prête   │ │
+│   │ crée API    │───POST────▶│   Express    │───────▶│              │ │
+│   │             │            │   Map Store  │         │  Utilisable  │ │
+│   └─────────────┘            └──────────────┘         └──────────────┘ │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  ⚡ DÉMARRAGE EN 3 ÉTAPES (5 MINUTES)                                   │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  ÉTAPE 1 : Déployer le Backend                                         │
+│  ─────────────────────────────                                         │
+│  1. Upload les fichiers sur GitHub                                     │
+│  2. Va sur vercel.com                                                  │
+│  3. Import le repo                                                     │
+│  4. Deploy                                                             │
+│  5. Copie l'URL : https://backend-executor-abc123.vercel.app           │
+│                                                                         │
+│  ⏱️  Temps : 2 minutes                                                  │
+│                                                                         │
+│  ────────────────────────────────────────────────────────────────      │
+│                                                                         │
+│  ÉTAPE 2 : Modifier ton HTML                                           │
+│  ──────────────────────────                                            │
+│  Ajoute cette ligne (ligne ~1200) :                                    │
+│                                                                         │
+│  const BACKEND_URL = 'https://backend-executor-abc123.vercel.app';     │
+│                                                                         │
+│  Puis ajoute 3 fonctions :                                             │
+│  • registerAPIOnBackend()    → Enregistre l'API                        │
+│  • copyRealApiUrl()          → Copie l'URL                             │
+│  • testRealAPI()             → Teste l'API réelle                      │
+│                                                                         │
+│  ⏱️  Temps : 3 minutes (tout est dans CHECKLIST.md)                    │
+│                                                                         │
+│  ────────────────────────────────────────────────────────────────      │
+│                                                                         │
+│  ÉTAPE 3 : Tester                                                      │
+│  ──────────────                                                        │
+│  1. Ouvre ton HTML                                                     │
+│  2. Crée une API test                                                  │
+│  3. Vérifie que tu obtiens une URL réelle                             │
+│                                                                         │
+│  ⏱️  Temps : 30 secondes                                                │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  📂 FICHIERS FOURNIS                                                    │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  Backend (à déployer) :                                                │
+│  ✅ server.js          - Code du serveur Node.js                       │
+│  ✅ package.json       - Dépendances npm                               │
+│  ✅ vercel.json        - Config déploiement                            │
+│                                                                         │
+│  Documentation :                                                       │
+│  📖 CHECKLIST.md       - ⭐ COMMENCE ICI                               │
+│  📖 QUICK_START.md     - Résumé rapide                                 │
+│  📖 INSTALLATION.md    - Guide détaillé                                │
+│  📖 EXAMPLES.md        - Exemples de code                              │
+│  📖 README_MAIN.md     - Vue d'ensemble                                │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  💡 EXEMPLE CONCRET                                                     │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  1. L'utilisateur crée une API "calculateSalary"                       │
+│     - Inputs: hours, rate                                              │
+│     - Logic: "Multiplier les heures par le taux"                       │
+│                                                                         │
+│  2. Ton site génère le code JavaScript                                 │
+│     let salary = hours * rate;                                         │
+│                                                                         │
+│  3. Le code est envoyé au backend automatiquement                      │
+│     fetch(BACKEND_URL + '/api/register', { ... })                      │
+│                                                                         │
+│  4. L'utilisateur voit :                                               │
+│     ┌──────────────────────────────────────────────────┐              │
+│     │ ✅ Votre API est prête !                         │              │
+│     │                                                  │              │
+│     │ URL : https://backend-executor.vercel.app       │              │
+│     │       /api/execute/abc123def456                 │              │
+│     │                                                  │              │
+│     │ [📋 Copier l'URL]  [🚀 Tester]                  │              │
+│     └──────────────────────────────────────────────────┘              │
+│                                                                         │
+│  5. L'utilisateur utilise l'API dans n'importe quel projet :           │
+│                                                                         │
+│     fetch('https://backend-executor.vercel.app/api/execute/abc123', {  │
+│       method: 'POST',                                                  │
+│       body: JSON.stringify({ hours: 40, rate: 25 })                   │
+│     })                                                                 │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  🎯 ENDPOINTS DE L'API                                                  │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  POST /api/register        → Enregistre une nouvelle API               │
+│  POST /api/execute/:id     → Exécute une API                           │
+│  GET  /api/info/:id        → Infos d'une API                           │
+│  GET  /api/list            → Liste toutes les APIs                     │
+│  GET  /api/health          → Status du serveur                         │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  ⚠️  LIMITATIONS ACTUELLES                                              │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  • Stockage en mémoire (APIs perdues au restart)                       │
+│    → Solution : Ajouter MongoDB                                        │
+│                                                                         │
+│  • Pas d'authentification                                              │
+│    → Solution : Ajouter API keys                                       │
+│                                                                         │
+│  • Rate limiting basique                                               │
+│    → Solution : Redis pour rate limiting avancé                        │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  📊 FLUX DE DONNÉES                                                     │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│   Frontend (ton HTML)              Backend (Vercel)                    │
+│   ─────────────────                ───────────────                     │
+│                                                                         │
+│   1. Générer code                                                      │
+│      ↓                                                                 │
+│   2. POST /api/register  ────────▶  3. Stocker dans Map               │
+│      {                                  apiStore.set(id, {...})        │
+│        functionName,                   ↓                               │
+│        inputs,                      4. Retourner URL                   │
+│        outputs,                        {                               │
+│        generatedCode                     apiUrl: "https://..."         │
+│      }                                 }                               │
+│      ↓                             ◀────                               │
+│   5. Afficher URL                                                      │
+│      ✅ Votre API est prête !                                          │
+│      URL: https://...                                                  │
+│                                                                         │
+│   ─────────────────────────────────────────────────────────────        │
+│                                                                         │
+│   Utilisateur externe              Backend (Vercel)                    │
+│   ─────────────────                ───────────────                     │
+│                                                                         │
+│   1. POST /api/execute/abc123  ───▶  2. Récupérer API                 │
+│      { hours: 40, rate: 25 }           apiStore.get(abc123)            │
+│                                        ↓                               │
+│                                     3. Exécuter code                   │
+│                                        new Function(...)               │
+│                                        ↓                               │
+│                                     4. Retourner résultat              │
+│                                  ◀────                                 │
+│   5. Recevoir résultat                                                 │
+│      { salary: 1000 }                                                  │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  📝 CHECKLIST RAPIDE                                                    │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  Backend :                                                             │
+│  ☐ Créer repo GitHub                                                   │
+│  ☐ Upload les fichiers                                                 │
+│  ☐ Déployer sur Vercel                                                 │
+│  ☐ Copier l'URL                                                        │
+│                                                                         │
+│  Frontend :                                                            │
+│  ☐ Ajouter const BACKEND_URL                                           │
+│  ☐ Modifier displayGeneratedCode()                                     │
+│  ☐ Ajouter registerAPIOnBackend()                                      │
+│  ☐ Modifier getAPIUrl()                                                │
+│  ☐ Ajouter copyRealApiUrl()                                            │
+│  ☐ Ajouter testRealAPI()                                               │
+│  ☐ Modifier le HTML de apiUrlDisplay                                   │
+│                                                                         │
+│  Tests :                                                               │
+│  ☐ Tester health check                                                 │
+│  ☐ Créer une API test                                                  │
+│  ☐ Vérifier l'URL réelle                                               │
+│  ☐ Tester l'exécution                                                  │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  🚀 PROCHAINES ÉTAPES                                                   │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  1. Lis CHECKLIST.md pour les détails                                  │
+│  2. Déploie le backend sur Vercel                                      │
+│  3. Modifie ton HTML                                                   │
+│  4. Teste                                                              │
+│  5. Profite ! 🎉                                                        │
+│                                                                         │
+│  Besoin d'aide ?                                                       │
+│  • INSTALLATION.md - Guide détaillé                                    │
+│  • EXAMPLES.md - Exemples de code                                      │
+│  • QUICK_START.md - Résumé rapide                                      │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║  💪 TU ES PRÊT !                                                        ║
+║                                                                          ║
+║  Tout est dans le dossier backend-executor/                            ║
+║  Commence par lire CHECKLIST.md                                        ║
+║                                                                          ║
+║  Bon courage ! 🚀                                                        ║
+╚══════════════════════════════════════════════════════════════════════════╝
+```

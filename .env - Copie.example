@@ -1,0 +1,19 @@
+# Configuration du Backend Executor
+
+# Port du serveur (par défaut: 3000)
+PORT=3000
+
+# URL du frontend (pour CORS)
+FRONTEND_URL=http://localhost:5500
+
+# Mode environnement
+NODE_ENV=development
+
+# MongoDB (optionnel - pour persister les données)
+# MONGODB_URI=mongodb+srv://user:password@cluster.mongodb.net/backend-executor
+
+# Clé secrète pour JWT (optionnel - pour authentification)
+# JWT_SECRET=your_secret_key_here
+
+# Limite de taux (requests par minute)
+RATE_LIMIT=100
